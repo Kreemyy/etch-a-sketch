@@ -41,27 +41,36 @@ let currentColor = "black";
 const colorInput = document.querySelector(".color-input");
 
 colorInput.addEventListener("input", (event) => {
+  randomizeColor = false;
   currentColor = event.target.value;
+  randomizeBTn.classList.remove("active");
 });
 
 let isDrawing = false;
+let randomizeColor = false;
 
 gridContainer.addEventListener("mousedown", (event) => {
   if (event.target.classList.contains("grid-cell")) {
     isDrawing = true;
-    event.target.style.backgroundColor = currentColor;
+    event.target.style.backgroundColor = randomizeColor
+      ? generateRandomColor()
+      : currentColor;
   }
 });
 
 gridContainer.addEventListener("mouseover", (event) => {
   if (event.target.classList.contains("grid-cell") && isDrawing) {
-    event.target.style.backgroundColor = currentColor;
+    event.target.style.backgroundColor = randomizeColor
+      ? generateRandomColor()
+      : currentColor;
   }
 });
 
 gridContainer.addEventListener("mouseup", (event) => {
   if (event.target.classList.contains("grid-cell") && isDrawing) {
-    event.target.style.backgroundColor = currentColor;
+    event.target.style.backgroundColor = randomizeColor
+      ? generateRandomColor()
+      : currentColor;
     isDrawing = false;
   }
 });
@@ -73,3 +82,17 @@ clearSketchBtn.addEventListener("click", () => {
     cell.style.backgroundColor = "#e5e2e6";
   });
 });
+
+const randomizeBTn = document.querySelector(".random-color-btn");
+randomizeBTn.addEventListener("click", () => {
+  randomizeColor = true;
+  randomizeBTn.classList.toggle("active");
+});
+
+function generateRandomColor() {
+  const red = Math.floor(Math.random() * 256);
+  const green = Math.floor(Math.random() * 256);
+  const blue = Math.floor(Math.random() * 255);
+
+  return `rgb(${red}, ${green},${blue})`;
+}

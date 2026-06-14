@@ -30,6 +30,10 @@ button {
   cursor: pointer;
 }
 
+.active {
+  text-decoration: overline #ffffff 2px;
+}
+
 .color-label {
   display: flex;
   align-items: center;
@@ -55,7 +59,7 @@ button {
 .grid-container {
   display: flex;
   flex-wrap: wrap;
-  width: 40%;
+  width: 50%;
   aspect-ratio: 1 / 1;
   border: 8px solid #eb4b4b;
   border-radius: 8px;
@@ -71,5 +75,9 @@ button {
 @media (max-width: 500px) {
   .grid-container {
     width: 90%;
+  }
+
+  .controls {
+    font-size: 15px;
   }
 }
