@@ -49,7 +49,7 @@ colorInput.addEventListener("input", (event) => {
 let isDrawing = false;
 let randomizeColor = false;
 
-gridContainer.addEventListener("mousedown", (event) => {
+gridContainer.addEventListener("pointerdown", (event) => {
   if (event.target.classList.contains("grid-cell")) {
     isDrawing = true;
     event.target.style.backgroundColor = randomizeColor
@@ -58,7 +58,7 @@ gridContainer.addEventListener("mousedown", (event) => {
   }
 });
 
-gridContainer.addEventListener("mouseover", (event) => {
+gridContainer.addEventListener("pointerover", (event) => {
   if (event.target.classList.contains("grid-cell") && isDrawing) {
     event.target.style.backgroundColor = randomizeColor
       ? generateRandomColor()
@@ -66,7 +66,7 @@ gridContainer.addEventListener("mouseover", (event) => {
   }
 });
 
-gridContainer.addEventListener("mouseup", (event) => {
+gridContainer.addEventListener("pointerup", (event) => {
   if (event.target.classList.contains("grid-cell") && isDrawing) {
     event.target.style.backgroundColor = randomizeColor
       ? generateRandomColor()
