@@ -58,9 +58,12 @@ gridContainer.addEventListener("pointerdown", (event) => {
   }
 });
 
-gridContainer.addEventListener("pointerover", (event) => {
-  if (event.target.classList.contains("grid-cell") && isDrawing) {
-    event.target.style.backgroundColor = randomizeColor
+gridContainer.addEventListener("pointermove", (event) => {
+  if (!isDrawing) return;
+
+  const element = document.elementFromPoint(event.clientX, event.clientY);
+  if (element && element.classList.contains("grid-cell")) {
+    element.style.backgroundColor = randomizeColor
       ? generateRandomColor()
       : currentColor;
   }

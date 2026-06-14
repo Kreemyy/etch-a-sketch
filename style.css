@@ -64,6 +64,7 @@ button {
   border: 8px solid #eb4b4b;
   border-radius: 8px;
   background-color: #ffffff;
+  touch-action: none;
 }
 
 .grid-cell {
