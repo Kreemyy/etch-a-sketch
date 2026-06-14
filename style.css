@@ -12,6 +12,7 @@ body {
   padding-top: 20px;
   background-color: #f1bebe;
 }
+
 h2 {
   color: white;
   background-color: #eb4b4b;
@@ -39,7 +40,7 @@ button {
 }
 
 .grid-cell {
-  outline: 1.3px solid rgb(30, 29, 29);
+  outline: 1.3px solid #767171;
   background-color: #d4d0d6;
   aspect-ratio: 1 / 1;
 }
