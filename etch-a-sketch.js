@@ -37,10 +37,39 @@ sizeBtn.addEventListener("click", () => {
   }
 });
 
+let currentColor = "black";
+const colorInput = document.querySelector(".color-input");
+
+colorInput.addEventListener("input", (event) => {
+  currentColor = event.target.value;
+});
+
+let isDrawing = false;
+
 gridContainer.addEventListener("mousedown", (event) => {
-  if (event.target.classList.contains(grid - cell)) {
+  if (event.target.classList.contains("grid-cell")) {
+    isDrawing = true;
+    event.target.style.backgroundColor = currentColor;
+  }
+});
+
+gridContainer.addEventListener("mouseover", (event) => {
+  if (event.target.classList.contains("grid-cell") && isDrawing) {
+    event.target.style.backgroundColor = currentColor;
+  }
+});
+
+gridContainer.addEventListener("mouseup", (event) => {
+  if (event.target.classList.contains("grid-cell") && isDrawing) {
+    event.target.style.backgroundColor = currentColor;
+    isDrawing = false;
   }
 });
 
 const clearSketchBtn = document.querySelector(".clear-sketch");
-clearSketchBtn.addEventListener("click", () => {});
+clearSketchBtn.addEventListener("click", () => {
+  const gridCell = document.querySelectorAll(".grid-cell");
+  gridCell.forEach((cell) => {
+    cell.style.backgroundColor = "#e5e2e6";
+  });
+});
