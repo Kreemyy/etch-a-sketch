@@ -76,6 +76,7 @@ gridContainer.addEventListener("mouseup", (event) => {
 });
 
 const clearSketchBtn = document.querySelector(".clear-sketch");
+
 clearSketchBtn.addEventListener("click", () => {
   const gridCell = document.querySelectorAll(".grid-cell");
   gridCell.forEach((cell) => {
@@ -84,8 +85,9 @@ clearSketchBtn.addEventListener("click", () => {
 });
 
 const randomizeBTn = document.querySelector(".random-color-btn");
+
 randomizeBTn.addEventListener("click", () => {
-  randomizeColor = true;
+  randomizeColor = randomizeBTn.classList.contains("active") ? false : true;
   randomizeBTn.classList.toggle("active");
 });
 
